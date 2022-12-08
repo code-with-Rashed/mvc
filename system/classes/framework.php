@@ -25,4 +25,17 @@ class framework
         }
     }
     //--------------------------------
+
+    // FINDING HELPER FILE THEN INCLUDING
+    protected function helper(string $helper_name)
+    {
+        if (file_exists("../system/helpers/$helper_name.php")) {
+            require_once ("../system/helpers/$helper_name.php");
+        } else {
+            echo "<div style='background-color:silver;padding:10px;margin:0;text-align:center;font-size:1.5rem;'>Sorry this helper file <strong style='color:red;'>$helper_name</strong> is not found !</div>";
+            exit;
+        }
+    }
+    //-----------------------------------
+
 }
