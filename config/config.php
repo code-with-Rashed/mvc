@@ -6,3 +6,7 @@ define("DBNAME", "test");
 define("USERNAME", "root");
 define("PASSWORD", "");
 //---------------------
+
+// APPLICATION BASE URL
+define("BASEURL", "http://localhost/mvc");
+//--------------------
