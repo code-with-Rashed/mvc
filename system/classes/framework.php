@@ -18,6 +18,7 @@ class framework
     {
         if (file_exists("../application/models/$model_name.php")) {
             require_once("../application/models/$model_name.php");
+            return new $model_name;
         } else {
             echo "<div style='background-color:silver;padding:10px;margin:0;text-align:center;font-size:1.5rem;'>Sorry this model file <strong style='color:red;'>$model_name</strong> is not found !</div>";
             exit;
