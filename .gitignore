@@ -1,5 +1,5 @@
-application/controllers/
-application/controllers/
-application/models/
-application/views/
-public/assets/
+application/controllers/*.php
+application/controllers/*.php
+application/models/*.php
+application/views/*.php
+public/assets/*.php
