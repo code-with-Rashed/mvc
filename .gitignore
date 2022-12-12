@@ -1,4 +1,5 @@
-application/controllers
-application/models
-application/views
-public/assets
+application/controllers/
+application/controllers/
+application/models/
+application/views/
+public/assets/
