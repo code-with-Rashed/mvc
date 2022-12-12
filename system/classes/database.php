@@ -53,4 +53,10 @@ class database
         return $this->result->fetch(PDO::FETCH_OBJ);
     }
     //----------------
+
+    //Return Effected Rows
+    function effected_rows(){
+        return $this->result->rowCount();
+    }
+    //--------------------
 }
