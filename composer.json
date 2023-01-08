@@ -1,0 +1,13 @@
+{
+    "autoload": {
+        "files": [
+            "Management/Functions/Functions.php",
+            "Configuration/Constant.php",
+            "Routes/web.php"
+        ],
+        "psr-4": {
+            "Management\\": "Management",
+            "App\\": "App"
+        }
+    }
+}
