@@ -1,5 +1,5 @@
 <?php
-require_once("./env.php");
+require_once("env.php");
 
 //application constant variables
 define("APP_URL", $APP_URL);
