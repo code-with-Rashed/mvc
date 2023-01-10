@@ -1,14 +1,14 @@
 <?php
 
 //application information
-$APP_URL = "";
-$APP_FOLDER = "";
+$APP_URL = "http://localhost/mvc";
+$APP_FOLDER = "mvc";
 //-----------------------
 
 //mysql database information
-$MSDB_HOST = "";
-$MSDB_PORT = "";
-$MSDB_USERNAME = "";
+$MSDB_HOST = "localhost";
+$MSDB_PORT = 3306;
+$MSDB_USERNAME = "root";
 $MSDB_PASSWORD = "";
-$MSDB_NAME = "";
+$MSDB_NAME = "test";
 //--------------------------
