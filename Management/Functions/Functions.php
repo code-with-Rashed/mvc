@@ -14,9 +14,13 @@ function storage_path(string $path = ''): string
     return APP_ROOT . "/Public/Storage/" . $path;
 }
 
+function stored_file(string $file = ''){
+    return APP_URL . "/Public/Storage/" . $file;
+}
+
 function assets(string $asset = ''): string
 {
-    return APP_URL . "Public/Assets/" . $asset;
+    return APP_URL . "/Public/Assets/" . $asset;
 }
 
 function url(string $path = ''): string
