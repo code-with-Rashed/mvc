@@ -63,6 +63,13 @@ class Router
         }
         self::process($url, $callback);
     }
+    public static function patch(string $url, object|array $callback)
+    {
+        if ($_SERVER["REQUEST_METHOD"] != "PATCH") {
+            return;
+        }
+        self::process($url, $callback);
+    }
     public static function delete(string $url, object|array $callback)
     {
         if ($_SERVER["REQUEST_METHOD"] != "DELETE") {
