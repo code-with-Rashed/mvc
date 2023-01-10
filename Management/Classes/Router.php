@@ -84,4 +84,9 @@ class Router
         }
         self::process($url, $callback);
     }
+
+    public static function __callStatic($name, $arguments)
+    {
+        die("This is non existing or private static method : $name()");
+    } 
 }
