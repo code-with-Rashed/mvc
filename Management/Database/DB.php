@@ -176,6 +176,18 @@ class DB
         }
     }
     //-----------------------------------------
+    
+    // escape your string
+    public function escapestring(string $data): string
+    {
+      $data = trim($data);
+      $data = stripslashes($data);
+      $data = strip_tags($data);
+      $data = htmlspecialchars($data);
+      $data = $this->mysqli->real_escape_string($data);
+      return $data;
+    }
+    //---------------------------------
 
     //set result method
     private function result($result): void
