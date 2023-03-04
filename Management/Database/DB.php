@@ -12,7 +12,7 @@ class DB
     private string $db_name = MSDB_NAME;
     //--------------
 
-    private object $mysqli = ""; //this will be our mysqli object
+    private object $mysqli; //this will be our mysqli object
     private array $result = []; //any results from a query will be stored here
 
     private bool $db_connection = false; //database connection status
@@ -155,7 +155,7 @@ class DB
             "insert" => $this->result($this->mysqli->insert_id),
             "update" => $this->result($this->mysqli->affected_rows),
             "delete" => $this->result($this->mysqli->affected_rows),
-            "default" => $this->result($query)
+            default => $this->result($query)
         };
         return true;
     }
