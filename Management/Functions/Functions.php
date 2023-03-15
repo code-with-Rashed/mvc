@@ -2,10 +2,11 @@
 
 function view(string $view_file, ...$data): void
 {
-    if (file_exists(APP_ROOT . "/Resources/View/" . $view_file . ".php")) {
-        include_once(APP_ROOT . "/Resources/View/" . $view_file . ".php");
+    $extension = !pathinfo($view_file, PATHINFO_EXTENSION) ? ".php" : "";
+    if (file_exists(APP_ROOT . "/Resources/View/" . $view_file . $extension)) {
+        include_once(APP_ROOT . "/Resources/View/" . $view_file . $extension);
     } else {
-        die("This view file ($view_file) are not exist !");
+        die("This view file ($view_file$extension) are not exist !");
     }
 }
 
@@ -14,7 +15,8 @@ function storage_path(string $path = ''): string
     return APP_ROOT . "/Public/Storage/" . $path;
 }
 
-function stored_file(string $file = ''){
+function stored_file(string $file = '')
+{
     return APP_URL . "/Public/Storage/" . $file;
 }
 
