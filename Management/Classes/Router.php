@@ -35,7 +35,8 @@ class Router
     private static function process(string $url, object|array $callback): void
     {
         (string) $pattern = self::parse_url($url);
-        (string) $url_match = "~^{$pattern}/?$~";
+        (string) $uri = APP_FOLDER . $pattern;
+        (string) $url_match = "~^{$uri}/?$~";
         (array)(bool) $params = self::url_matches($url_match);
         if ($params) {
             $arguments = array_slice($params, 1);
@@ -88,5 +89,5 @@ class Router
     public static function __callStatic($name, $arguments)
     {
         die("This is non existing or private static method : $name()");
-    } 
+    }
 }
