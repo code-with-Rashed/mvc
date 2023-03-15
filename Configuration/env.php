@@ -2,7 +2,7 @@
 
 //application information
 $APP_URL = "http://localhost/mvc";
-$APP_FOLDER = "mvc";
+$APP_FOLDER = "/mvc";
 //-----------------------
 
 //mysql database information
