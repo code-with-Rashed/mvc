@@ -29,3 +29,8 @@ function url(string $path = ''): string
 {
     return APP_URL . $path;
 }
+
+function redirect(string $uri)
+{
+    header("Location:" . APP_URL . $uri);
+}
