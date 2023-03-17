@@ -11,9 +11,9 @@ class Csrf
     {
         $csrf = Token::make();
         Session::set($csrf_name, $csrf);
-        return $csrf;
+        return [$csrf_name => $csrf];
     }
-    public static function match(string $csrf_name, string $csrf_value)
+    public static function match(string $csrf_value, string $csrf_name = 'CSRF')
     {
         if (Session::get($csrf_name) === $csrf_value) {
             return true;
