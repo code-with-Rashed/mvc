@@ -41,6 +41,7 @@ class Session
     }
     public static function clear()
     {
+        self::start();
         $_SESSION = [];
     }
 }
