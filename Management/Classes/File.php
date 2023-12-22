@@ -15,7 +15,7 @@ class File
     public static function remove(string $file): bool
     {
         if (self::exist($file)) {
-            return true;
+           return unlink($file);
         }
         return false;
     }
