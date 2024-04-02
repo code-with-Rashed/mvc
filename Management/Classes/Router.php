@@ -8,6 +8,7 @@ class Router
     {
         return $_SERVER["REQUEST_URI"];
     }
+
     private static function url_matches(string $url): array|bool
     {
         (string) $subject = self::get_uri();
@@ -16,6 +17,7 @@ class Router
         }
         return false;
     }
+
     private static function parse_url(string $url): string
     {
         $parse_url = explode("/", $url);
@@ -32,6 +34,7 @@ class Router
         }
         return $final_url;
     }
+
     private static function process(string $url, object|array $callback): void
     {
         (string) $pattern = self::parse_url($url);
@@ -42,14 +45,17 @@ class Router
             $arguments = array_slice($params, 1);
             if (is_callable($callback)) {
                 $callback(...$arguments);
+                die;
             } else if (is_array($callback)) {
                 (string) $class = $callback[0];
                 (string) $method = $callback[1];
                 (object) $object = new $class();
                 $object->$method(...$arguments);
+                die;
             }
         }
     }
+
     public static function get(string $url, object|array $callback)
     {
         if ($_SERVER["REQUEST_METHOD"] != "GET") {
@@ -57,6 +63,7 @@ class Router
         }
         self::process($url, $callback);
     }
+
     public static function put(string $url, object|array $callback)
     {
         if ($_SERVER["REQUEST_METHOD"] != "PUT") {
@@ -64,6 +71,7 @@ class Router
         }
         self::process($url, $callback);
     }
+
     public static function patch(string $url, object|array $callback)
     {
         if ($_SERVER["REQUEST_METHOD"] != "PATCH") {
@@ -71,6 +79,7 @@ class Router
         }
         self::process($url, $callback);
     }
+
     public static function delete(string $url, object|array $callback)
     {
         if ($_SERVER["REQUEST_METHOD"] != "DELETE") {
@@ -78,12 +87,18 @@ class Router
         }
         self::process($url, $callback);
     }
+
     public static function post(string $url, object|array $callback)
     {
         if ($_SERVER["REQUEST_METHOD"] != "POST") {
             return;
         }
         self::process($url, $callback);
+    }
+
+    public static function bad_request($redirect = "/")
+    {
+        redirect($redirect);
     }
 
     public static function __callStatic($name, $arguments)
